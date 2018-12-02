@@ -22,3 +22,21 @@ public static double myPow(double x, int n) {
     }
 }
 
+// iterative
+// 2^10 = 2^1010
+// check LSB for 1010 each time, 
+// 1 means we need to time the 2^binary_index to the answer;
+ public static double myPow(double x, int n) {
+        if (x == 0 ) throw new IllegalArgumentException();
+        if (n == 0) return 1;
+        
+        Long N = Math.abs((long)n);
+        double ans = 1;
+        while (N > 0) {
+            if ((N & 1) == 1) ans *= x;
+            x *= x;
+            N >>= 1;
+        }
+        return n < 0 ? 1/ans : ans;  
+    }
+
