@@ -1,5 +1,7 @@
 
 /*
+ * 2ptr 
+ *
  * check if a string is a palindrom.
  * only consider alphanumeric char, and numbers
  * ignoring case
