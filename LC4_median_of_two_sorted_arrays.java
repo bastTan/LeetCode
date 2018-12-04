@@ -38,6 +38,9 @@ public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
 // 1 2 6 7 8
 // 3 4 5 7 9
+/* k < m+n
+ * findKthSmallestInSortedArrays() <= O(log(m+n))
+ */
 public double findKthSmallestInSortedArrays(int[] nums1, int[] nums2, int k) {
     int len1 = nums1.length, len2 = nums2.length, base1 = 0; base2 = 0;
     while (true) {
