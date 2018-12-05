@@ -35,3 +35,24 @@ public boolean hasCycle(ListNode head) {
     }
     return false;
 }
+
+
+//[Q] count node in size, ika. cycle size
+public int cycleSize(ListNode head) {
+    if (head == null || head.next == null) return 0;
+    ListNode slow = head, fast = head;
+    int cycleSize = 0;
+    
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == fast){ // found cycle
+            while (slow.next != fast) {
+                cycleSize++;
+                slow = slow.next;
+            }
+            return cycleSize + 1;
+        }
+    }
+    return 0;
+}
