@@ -55,3 +55,13 @@ public ListNode getIntersectionWithOutLen(ListNode head1, ListNode head2) {
     }
     return c1;
 }
+
+public ListNode getIntersectionWithOutLen(ListNode head1, ListNode head2) {
+    if (head1 == null || head2 == null) return null;
+    ListNode c1 = head1, c2 = head2;
+    while (c1 != c2) {
+        if (c1 != null) c1 = c1.next;
+        else c1 = head2;
+    }
+    return c1;
+}
