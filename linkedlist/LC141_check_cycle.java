@@ -11,8 +11,7 @@ public boolean hasCycle(ListNode head) {
     return false;
 }
 // s2. if has cycle, slow, fast will meet in the cycle
-// if slow = fast = head, walk first then check
-// if slow + 1 = fast, check first then walk
+// s2.1 if slow = fast = head, walk first then check
 public boolean hasCycle(ListNode head) {
     if (head == null || head.next == null) return false;
     ListNode slow = head, fast = head;
@@ -24,6 +23,7 @@ public boolean hasCycle(ListNode head) {
     }
     return false;
 }
+// s2.2 if slow + 1 = fast, check first then walk
 public boolean hasCycle(ListNode head) {
     if (head == null || head.next == null) return false;
     ListNode slow = head, fast = head.next;
