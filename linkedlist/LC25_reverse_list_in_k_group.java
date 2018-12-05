@@ -15,7 +15,9 @@ public ListNode reverseKGroup(ListNode head, int k) {
     int count = 0;
 
     // find k+1 node
-    while (curr != null && count != k) {
+    while (curr != null && count < k) { 
+        // if the non-multiple-of k part need also reverse, 
+        // we can reverse while finding k+1
         curr = curr.next;
         count++;
     } // after while loop, count == k, curr at k+1 node
@@ -40,4 +42,32 @@ public ListNode reverseKGroup(ListNode head, int k) {
         head = subHead; // if we do k+1 part, update head, else keep the same
     }
     return head; 
+}
+
+// do k reverse while tranverse, then recurse, 
+// less than k part still remain sill
+public ListNode reverseKGroup(ListNode head, int k) {
+    if (head == null || head.next == null || getlen(head) < k) return head;
+    ListNode prev = null, curr = head, next = null;
+    int cnt = 0;
+    while(curr != null & cnt < k) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+        cnt++;
+    } // curr at k+1
+    head.next = reverseKGroup(curr, k);
+    return prev;
+}
+
+public int getlen(ListNode head) {
+    if (head == null) return 0;
+    ListNode curr = head;
+    int cnt = 0;
+    while (curr != null) {
+        cnt++;
+        curr = curr.next;
+    }
+    return cnt;
 }
