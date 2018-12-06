@@ -18,6 +18,9 @@ public ListNode middleNode(ListNode head) {
 // we can use dummy node
 // slow = dummy
 // fast = head
+//
+// or,
+// check fast.next.next != null
 
 public ListNode middleNode(ListNode head) {
     if (head == null || head.next == null) return head;
