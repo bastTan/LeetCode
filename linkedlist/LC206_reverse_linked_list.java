@@ -31,6 +31,7 @@ public ListNode reverseListRec(ListNode head) {
 }
 
 // reverse linkedlist might has cycle
+//--------------------------------------------------------------------------------
 // use node.visited field
 public ListNode reverseListIter(ListNode head) {
     if (head == null || head.next == null) return head;
