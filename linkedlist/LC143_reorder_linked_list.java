@@ -63,3 +63,20 @@ public void pairMerge(ListNode l1, ListNode l2) {
         c2 = next;
     }
 }
+
+private ListNode pairMergeWithDummy(ListNode l1, ListNode l2) {
+    ListNode dummy = new ListNode(0);
+    ListNode curr = dummy;
+    ListNode c1 = l1, c2 = l2;
+    while (c1 != null && c2 != null) {
+        curr.next = c1;
+        c1 = c1.next;
+        curr = curr.next;
+        curr.next = c2;
+        c2 = c2.next;
+        curr = curr.next
+    }
+    if (c1 != null) curr.next = c1;
+    if (c2 != null) curr.next = c2;
+    return dummy.next;
+}
